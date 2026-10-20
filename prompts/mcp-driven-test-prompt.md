@@ -35,7 +35,14 @@ from what you observe, and re-run until it passes.
 
 
 
-* follow up prompt :
+
+
+
+
+
+
+
+## Follow-up prompt :
 On the cart page, take a snapshot and find the locator for the quantity cell in each product row. Assert the exact quantity (1 for Beans, 2 for Pumpkin) instead of checking that the row contains "1" or "2".
 Use the constants for product search and add BEANS_QTY and PUMPKIN_QTY constants.
 For every CSS locator in the test (.product, tr, select, checkbox), confirm it was seen via MCP. If a role-based locator exists in the snapshot, use that instead.

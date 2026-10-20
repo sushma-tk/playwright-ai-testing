@@ -3,6 +3,7 @@
 Hands-on work using AI coding agents with Playwright. Everything here uses the same demo app so results are easy to compare.
 
 **Application under test:** [GreenKart – Rahul Shetty Academy](https://rahulshettyacademy.com/seleniumPractise/#/)
+
 **Tools:** VS Code, Playwright (JavaScript), GitHub Copilot (Agent mode), Playwright MCP server
 
 ---
@@ -12,6 +13,7 @@ Hands-on work using AI coding agents with Playwright. Everything here uses the s
 | # | Topic | Prompt | Test |
 |---|-------|--------|------|
 | 1 | Generate a test with the Playwright MCP server | [prompts/mcp-driven-test-prompt.md](prompts/mcp-driven-test-prompt.md) | [tests/mcp-driven-test.spec.js](tests/mcp-driven-test.spec.js) |
+| 2 | Enforce Page Object Model with a skill file | [prompts/Skill-File-POM-Enforcement-prompt.md](prompts/Skill-File-POM-Enforcement-prompt.md) | [tests/Skill-File-POM-Enforcement-test.spec.js](tests/Skill-File-POM-Enforcement-test.spec.js) |
 
 ---
 
@@ -59,6 +61,33 @@ Let an AI agent drive a live browser through the Playwright MCP server, find the
 
 ---
 
+## 2. Page Object Model with a skill file
+
+### Goal
+Write my coding standard in a skill file, then have the AI agent refactor the test from topic 1 to follow it using one prompt.
+
+### What I did
+1. Wrote a skill file: [.github/skills/playwright-pom/SKILL.md](.github/skills/playwright-pom/SKILL.md).
+2. Gave the agent one prompt: read the skill file, re-run the same test case through MCP to rediscover the locators, and build a new POM-based test.
+3. The prompt points to the topic 1 prompt file instead of repeating the manual steps.
+4. Kept the topic 1 test unchanged so both versions can be compared.
+5. Test passes against the live site.
+
+### What the skill file requires
+- **Page Object Model:** one Page Object class per page.
+- **Locators:** all locators live in the Page Object classes, never in the test file, and must be discovered through MCP.
+- **Class structure:** constructor → locator properties → dynamic locators → action methods → `module.exports`. No assertions or test data inside classes.
+- **Test file:** imports classes with `require`, creates them with `new ClassName(page)`, keeps test data as constants at the top, and only calls methods and asserts on page object locators.
+
+### Page Objects created
+| File | Page |
+|------|------|
+| [pages/ProductsPage.js](pages/ProductsPage.js) | Search, set quantity, add to cart, open cart, proceed to checkout |
+| [pages/CartPage.js](pages/CartPage.js) | Quantity per product, place order |
+| [pages/CountryPage.js](pages/CountryPage.js) | Choose country, agree to terms, proceed, confirmation message |
+
+---
+
 ## How to run
 ```bash
 npm install
@@ -66,3 +95,13 @@ npx playwright install
 npx playwright test                 # run all tests
 npx playwright test --headed        # watch it in a browser
 ```
+
+
+
+
+
+
+
+
+
+
