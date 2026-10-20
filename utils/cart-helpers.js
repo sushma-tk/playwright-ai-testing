@@ -4,4 +4,8 @@ function buildProductName(name) {
   return `${formatted} - 1 Kg`;
 }
 
-module.exports = { buildProductName };
+function formatQuantity(quantity) {
+  return String(quantity);
+}
+
+module.exports = { buildProductName, formatQuantity };
