@@ -14,7 +14,7 @@ Hands-on work using AI coding agents with Playwright. Everything here uses the s
 |---|-------|--------|------|
 | 1 | Generate a test with the Playwright MCP server | [prompts/mcp-driven-test-prompt.md](prompts/mcp-driven-test-prompt.md) | [tests/mcp-driven-test.spec.js](tests/mcp-driven-test.spec.js) |
 | 2 | Enforce Page Object Model with a skill file | [prompts/Skill-File-POM-Enforcement-prompt.md](prompts/Skill-File-POM-Enforcement-prompt.md) | [tests/Skill-File-POM-Enforcement-test.spec.js](tests/Skill-File-POM-Enforcement-test.spec.js) |
-| 3 | Playwright CLI codegen + POM, compared with MCP | [prompts/CLI-Codegen-POM-prompt.md](prompts/CLI-Codegen-prompt.md) | [tests/CLI-Codegen-test.spec.js](tests/CLI-Codegen-test.spec.js) |
+| 3 | Playwright CLI codegen + POM, compared with MCP | [prompts/CLI-Codegen-prompt.md](prompts/CLI-Codegen-prompt.md) | [tests/CLI-Codegen-test.spec.js](tests/CLI-Codegen-test.spec.js) |
 
 ---
 
