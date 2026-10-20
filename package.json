@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "playwright test",
-    "test:headed": "playwright test --headed"
+    "test:headed": "playwright test --headed",
+    "codegen": "playwright codegen https://rahulshettyacademy.com/seleniumPractise/#/"
   },
   "keywords": [],
   "author": "",
