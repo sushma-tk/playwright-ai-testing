@@ -7,7 +7,8 @@
     "test": "playwright test",
     "test:headed": "playwright test --headed",
     "report": "playwright show-report",
-    "codegen": "playwright codegen https://rahulshettyacademy.com/seleniumPractise/#/"
+    "codegen": "playwright codegen https://rahulshettyacademy.com/seleniumPractise/#/",
+    "test:chromium": "playwright test --project=chromium"
   },
   "keywords": [],
   "author": "",
