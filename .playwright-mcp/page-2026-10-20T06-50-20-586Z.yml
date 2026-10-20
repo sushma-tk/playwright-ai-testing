@@ -1,0 +1,47 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - generic [ref=e5]:
+      - generic [ref=e6]: GREENKART
+      - generic [ref=e8]:
+        - searchbox "Search for Vegetables and Fruits" [ref=e9]: Beans
+        - button [ref=e10] [cursor=pointer]
+      - generic [ref=e11]:
+        - link "🎯 I’ll help you prepare for your next QA job — Explore the QA Career Accelerator." [ref=e12] [cursor=pointer]:
+          - /url: https://rahulshettyacademy.com/qa-career-accelerator-job-ready
+        - link "Top Deals" [ref=e13] [cursor=pointer]:
+          - /url: "#/offers"
+        - link "Flight Booking" [ref=e14] [cursor=pointer]:
+          - /url: https://rahulshettyacademy.com/dropdownsPractise/
+        - table [ref=e16]:
+          - rowgroup [ref=e17]:
+            - row [ref=e365]:
+              - cell "Items" [ref=e19]
+              - cell ":" [ref=e20]
+              - cell [ref=e366]:
+                - strong [ref=e22]: "1"
+            - row [ref=e367]:
+              - cell "Price" [ref=e24]
+              - cell ":" [ref=e25]
+              - cell [ref=e368]:
+                - strong [ref=e27]: "82"
+        - link [ref=e28] [cursor=pointer]:
+          - /url: "#"
+          - img "Cart" [ref=e29]
+        - text: ₹ ₹
+  - generic [ref=e98]:
+    - img "Beans - 1 Kg" [ref=e100]
+    - heading "Beans - 1 Kg" [level=4] [ref=e101]
+    - paragraph [ref=e102]: ₹ 82
+    - generic [ref=e103]:
+      - link "–" [ref=e104] [cursor=pointer]:
+        - /url: "#"
+      - spinbutton [ref=e105]: "1"
+      - link "+" [ref=e106] [cursor=pointer]:
+        - /url: "#"
+    - button "ADD TO CART" [active] [ref=e108] [cursor=pointer]
+  - contentinfo [ref=e362]:
+    - paragraph [ref=e363]:
+      - text: © 2019
+      - strong [ref=e364]: GreenKart
+      - text: "- buy veg and fruits online"
+  - text: ₹ ₹ ₹ ₹
