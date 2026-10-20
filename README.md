@@ -14,6 +14,7 @@ Hands-on work using AI coding agents with Playwright. Everything here uses the s
 |---|-------|--------|------|
 | 1 | Generate a test with the Playwright MCP server | [prompts/mcp-driven-test-prompt.md](prompts/mcp-driven-test-prompt.md) | [tests/mcp-driven-test.spec.js](tests/mcp-driven-test.spec.js) |
 | 2 | Enforce Page Object Model with a skill file | [prompts/Skill-File-POM-Enforcement-prompt.md](prompts/Skill-File-POM-Enforcement-prompt.md) | [tests/Skill-File-POM-Enforcement-test.spec.js](tests/Skill-File-POM-Enforcement-test.spec.js) |
+| 3 | Playwright CLI codegen + POM, compared with MCP | [prompts/CLI-Codegen-POM-prompt.md](prompts/CLI-Codegen-prompt.md) | [tests/CLI-Codegen-test.spec.js](tests/CLI-Codegen-test.spec.js) |
 
 ---
 
@@ -86,6 +87,40 @@ Write my coding standard in a skill file, then have the AI agent refactor the te
 | [pages/CartPage.js](pages/CartPage.js) | Quantity per product, place order |
 | [pages/CountryPage.js](pages/CountryPage.js) | Choose country, agree to terms, proceed, confirmation message |
 
+---
+
+## 3. Playwright CLI codegen + POM
+ 
+### Goal
+Repeat topics 1 and 2 using Playwright CLI `codegen` instead of the MCP server, then compare the two approaches.
+ 
+### What I did
+1. Recorded the same test case by hand with codegen, including assertions for quantities and the confirmation message:
+```bash
+   npx playwright codegen https://rahulshettyacademy.com/seleniumPractise/#/ -o codegen/greenkart-codegen-raw.spec.js
+```
+2. Saved the raw recording unchanged: [codegen/greenkart-codegen-raw.spec.js](codegen/greenkart-codegen-raw.spec.js).
+3. Gave the agent one prompt with the recording and the **same skill file from topic 2, unchanged**. The prompt tells the agent to use the codegen locators instead of MCP and does not repeat the manual steps.
+4. The agent refactored the recording into POM, with page classes in `pages/codegen/` so the topic 2 page objects stay untouched.
+5. Test passes against the live site.
+### Page Objects created
+| File | Page |
+|------|------|
+| [pages/codegen/ProductsPage.js](pages/codegen/ProductsPage.js) | Search, increase quantity, add to cart, open cart |
+| [pages/codegen/CartPage.js](pages/codegen/CartPage.js) | Cart table, proceed to checkout, place order |
+| [pages/codegen/CheckoutPage.js](pages/codegen/CheckoutPage.js) | Choose country, accept terms, proceed, confirmation message |
+ 
+### MCP vs CLI codegen
+ 
+| | MCP (topics 1–2) | CLI codegen (topic 3) |
+|---|---|---|
+| **Locator quality** | Role- and name-based, tied to the product (`heading 'Beans - 1 Kg'`, exact quantity cell). Stable. | Index-based (`nth(6)`, `nth(11)`), a truncated search box name, and CSS (`tbody`, `#root`). Depends on product order and timing. |
+| **Agent effort** | High. The agent drove the browser step by step, took snapshots and found every locator itself. Topic 1 needed follow-up prompts. | Low. I recorded the flow by hand; the agent only restructured the recorded code into POM from one prompt. |
+| **Manual clean-up** | Little. After a few follow-ups the locators and assertions were solid. | More needed: replace index locators with name-based ones, check the exact quantity cell instead of the whole table, target only the message text, and remove the extra `goto` recorded during the redirect. |
+| **Best for** | Reliable, readable tests that need less fixing later. | A quick first draft of a flow that needs review before relying on it. |
+ 
+**Takeaway:** codegen is faster to start, but MCP gives better locators because the agent reads the page by role and name. Codegen records exactly what was clicked, including positions and timing.
+ 
 ---
 
 ## How to run
