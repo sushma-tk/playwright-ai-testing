@@ -15,6 +15,7 @@ Hands-on work using AI coding agents with Playwright. Everything here uses the s
 | 1 | Generate a test with the Playwright MCP server | [prompts/mcp-driven-test-prompt.md](prompts/mcp-driven-test-prompt.md) | [tests/mcp-driven-test.spec.js](tests/mcp-driven-test.spec.js) |
 | 2 | Enforce Page Object Model with a skill file | [prompts/Skill-File-POM-Enforcement-prompt.md](prompts/Skill-File-POM-Enforcement-prompt.md) | [tests/Skill-File-POM-Enforcement-test.spec.js](tests/Skill-File-POM-Enforcement-test.spec.js) |
 | 3 | Playwright CLI codegen + POM, compared with MCP | [prompts/CLI-Codegen-prompt.md](prompts/CLI-Codegen-prompt.md) | [tests/CLI-Codegen-test.spec.js](tests/CLI-Codegen-test.spec.js) |
+| 4 | Git workflows: manual vs Git MCP agent | [git-practice/part-b-mcp.md](git-practice/part-b-mcp.md) | [git-practice/part-a-manual.md](git-practice/part-a-manual.md) (notes, no test) |
 
 ---
 
@@ -121,6 +122,42 @@ Repeat topics 1 and 2 using Playwright CLI `codegen` instead of the MCP server, 
  
 **Takeaway:** codegen is faster to start, but MCP gives better locators because the agent reads the page by role and name. Codegen records exactly what was clicked, including positions and timing.
  
+---
+
+## 4. Git workflows: manual vs Git MCP
+ 
+### Goal
+Practice commits, merge-conflict resolution and cherry-pick by hand, then repeat every scenario by giving an AI agent plain-English instructions through a Git MCP server.
+ 
+### Part A – Manual (branch `git-manual-practice`)
+- **4 commits:** shared test data file, product name helper, npm scripts, legacy wait helper.
+- **4 conflict scenarios.** A `shared-N` branch played a teammate; merging it simulated a `git pull`:
+  | # | Scenario | Resolution |
+  |---|----------|------------|
+  | 1 | Same line edited differently (timeout 45000 vs 60000) | Kept one value (45000) |
+  | 2 | One side deleted a file, the other modified it | Accepted the deletion (`git rm`) |
+  | 3 | Conflicting changes in the same function (trim vs capitalize) | Combined both: trim, then capitalize |
+  | 4 | Both sides added a different npm script in the same place | Kept both and checked the JSON is valid |
+- **Cherry-pick:** made 3 commits on `feature-extras`, then brought only the middle one (`formatQuantity` helper) onto `git-manual-practice` with `git cherry-pick`.
+- Notes: [git-practice/part-a-manual.md](git-practice/part-a-manual.md) · History: [git-practice/part-a-git-log.txt](git-practice/part-a-git-log.txt)
+### Part B – Git MCP (branch `git-mcp-practice`)
+- Added [`@cyanheads/git-mcp-server`](https://github.com/cyanheads/git-mcp-server) to `.vscode/mcp.json`. I picked it because it has merge and cherry-pick tools.
+- Repeated every Part A scenario with **7 natural-language prompts** to Copilot. I typed no Git commands; the agent used Git MCP tools (`git_branch`, `git_checkout`, `git_commit`, `git_merge`, `git_add`, `git_cherry_pick`, `git_log`…) plus a file-editing tool for code changes.
+- Practice branches used `mcp-shared-1` to `mcp-shared-4` and `mcp-feature-extras`, so they stay separate from Part A.
+- Prompts, agent actions and comparison: [git-practice/part-b-mcp.md](git-practice/part-b-mcp.md) · History: [git-practice/part-b-git-log.txt](git-practice/part-b-git-log.txt)
+### Manual vs agent (short version)
+| | Manual | Git MCP agent |
+|---|---|---|
+| **Effort** | About 60 commands typed | 7 prompts, no Git commands |
+| **Speed** | About 1 hour | About 25 minutes |
+| **Conflict decisions** | My own, with technical reasons | Correct, but only because I said which side to keep |
+| **Checks** | Validated JSON before committing | Skipped JSON validation; added extra Git status/diff checks |
+| **Tool gaps** | None | No file editing, no `git rm`, no graph log, so it needed workarounds and many extra tool calls |
+ 
+**Takeaway:** the agent is great at doing Git steps quickly from clear instructions, but the decisions and the final review still need someone who understands Git.
+ 
+> All practice branches are pushed to GitHub but **not merged** into `main`. Use the branch dropdown to see them.
+
 ---
 
 ## How to run
