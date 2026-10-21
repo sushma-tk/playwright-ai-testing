@@ -6,6 +6,7 @@
   "scripts": {
     "test": "playwright test",
     "test:headed": "playwright test --headed",
+    "test:chromium": "playwright test --project=chromium",
     "report": "playwright show-report",
     "codegen": "playwright codegen https://rahulshettyacademy.com/seleniumPractise/#/"
   },
