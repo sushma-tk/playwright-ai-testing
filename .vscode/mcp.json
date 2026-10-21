@@ -3,6 +3,17 @@
     "playwright": {
       "command": "/opt/homebrew/bin/npx",
       "args": ["@playwright/mcp@latest"]
+    },
+    "git": {
+      "command": "/opt/homebrew/bin/npx",
+      "args": ["@cyanheads/git-mcp-server@latest"],
+      "env": {
+        "MCP_TRANSPORT_TYPE": "stdio",
+        "GIT_BASE_DIR": "/Users/sushma/Documents/Playwright/playwright_ai_testing",
+        "GIT_USERNAME": "sushma",
+        "GIT_EMAIL": "sushma.tacholi@gmail.com",
+        "GIT_SIGN_COMMITS": "false"
+      }
     }
   }
 }

@@ -1,0 +1,52 @@
+* e4083c5 Add helper to format quantity as text
+| * 83d97b9 Add chromium-only test script
+| * bc7c951 Add helper to format quantity as text
+| * cc0baf7 Add product list to test data
+|/  
+*   caeca15 Merge branch 'shared-4' into git-manual-practice
+|\  
+| * f1a7a13 Add npm script to open HTML report
+* | 34c0a35 Add npm script to start codegen
+|/  
+*   2d5710a Merge branch 'shared-3' into git-manual-practice
+|\  
+| * e7a24e3 Trim spaces in product name
+* | 31db2cb Capitalize first letter of product name
+|/  
+*   8d4c1e1 Merge branch 'shared-2' into git-manual-practice
+|\  
+| * 1966a62 Remove unused legacy wait helper
+* | eb8f293 Add default value to wait helper
+|/  
+*   b4badfb Merge branch 'shared-1' into git-manual-practice
+|\  
+| * 3ac51d5 Increase default timeout to 45 seconds
+* | 092d9cc Increase default timeout to 60 seconds
+|/  
+* a7d21e2 Add legacy wait helper
+* 5a8b450 Add npm scripts for running tests
+* 7ca9a20 Add helper to build product names
+* fe70ffe Add shared GreenKart test data file
+* 6be42ea update readme
+* 4432779 codegen vs mcp
+* 11cef85 skill-file-pom
+* 145ebd1 mcp-driven-test
+* 7dcbcfc Agent host session 18ed9a7c-60ab-40a0-a834-93bdd117925d - turn 2
+* bd128e7 Agent host session 18ed9a7c-60ab-40a0-a834-93bdd117925d - turn 2 start
+* 2e98079 Agent host session 18ed9a7c-60ab-40a0-a834-93bdd117925d - turn 1
+* 4ec58c5 Agent host session 18ed9a7c-60ab-40a0-a834-93bdd117925d - turn 1 start
+* 13f3338 Agent host session 18ed9a7c-60ab-40a0-a834-93bdd117925d - baseline checkpoint
+* 08f93e3 Agent host session 3a4ac0ae-34ce-4537-88bb-225e61bfd386 - turn 3
+* e94d3f8 Agent host session 3a4ac0ae-34ce-4537-88bb-225e61bfd386 - turn 3 start
+* 944ddc6 Agent host session 3a4ac0ae-34ce-4537-88bb-225e61bfd386 - turn 2
+* 66b77c5 Agent host session 3a4ac0ae-34ce-4537-88bb-225e61bfd386 - turn 2 start
+* f5cb659 Agent host session 3a4ac0ae-34ce-4537-88bb-225e61bfd386 - turn 1
+* cb4de5b Agent host session 3a4ac0ae-34ce-4537-88bb-225e61bfd386 - turn 1 start
+* 3c224f0 Agent host session 3a4ac0ae-34ce-4537-88bb-225e61bfd386 - baseline checkpoint
+* 23bcb76 Agent host session 9579a9b4-1cf5-4c48-b5f6-a2a8bbbe22c9 - turn 3
+* c695a54 Agent host session 9579a9b4-1cf5-4c48-b5f6-a2a8bbbe22c9 - turn 3 start
+* e6d338a Agent host session 9579a9b4-1cf5-4c48-b5f6-a2a8bbbe22c9 - turn 2
+* d590aba Agent host session 9579a9b4-1cf5-4c48-b5f6-a2a8bbbe22c9 - turn 2 start
+* fe43a6e Agent host session 9579a9b4-1cf5-4c48-b5f6-a2a8bbbe22c9 - turn 1
+* e41d26d Agent host session 9579a9b4-1cf5-4c48-b5f6-a2a8bbbe22c9 - turn 1 start
+* 5de51e9 Agent host session 9579a9b4-1cf5-4c48-b5f6-a2a8bbbe22c9 - baseline checkpoint

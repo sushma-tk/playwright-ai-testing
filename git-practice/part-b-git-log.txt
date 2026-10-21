@@ -1,0 +1,45 @@
+145ebd1 (mcp-driven-test)
+`-- 11cef85 skill-file-pom
+    `-- 4432779 codegen vs mcp
+        `-- 6be42ea (main, origin/main) update readme
+            |-- fe70ffe Add shared GreenKart test data file
+            |   `-- 7ca9a20 Add helper to build product names
+            |       `-- 5a8b450 Add npm scripts for running tests
+            |           `-- a7d21e2 Add legacy wait helper
+            |               |-- 092d9cc Increase default timeout to 60 seconds
+            |               `-- 3ac51d5 (shared-1) Increase default timeout to 45 seconds
+            |                   `-- b4badfb Merge branch 'shared-1' into git-manual-practice
+            |                       |-- 1966a62 (shared-2) Remove unused legacy wait helper
+            |                       `-- eb8f293 Add default value to wait helper
+            |                           `-- 8d4c1e1 Merge branch 'shared-2' into git-manual-practice
+            |                               |-- 31db2cb Capitalize first letter of product name
+            |                               `-- e7a24e3 (shared-3) Trim spaces in product name
+            |                                   `-- 2d5710a Merge branch 'shared-3' into git-manual-practice
+            |                                       |-- 34c0a35 Add npm script to start codegen
+            |                                       `-- f1a7a13 (shared-4) Add npm script to open HTML report
+            |                                           `-- caeca15 Merge branch 'shared-4' into git-manual-practice
+            |                                               |-- e4083c5 (git-manual-practice) Add helper to format quantity as text
+            |                                               `-- cc0baf7 Add product list to test data
+            |                                                   `-- bc7c951 Add helper to format quantity as text
+            |                                                       `-- 83d97b9 (feature-extras) Add chromium-only test script
+            |
+            `-- 630f5ad Add GreenKart test data
+                `-- 2aea128 Add cart product name helper
+                    `-- 9180a39 Add Playwright test scripts
+                        `-- 89476e0 Add legacy wait helper
+                            |-- 9a0c6b1 Set default timeout to 60000
+                            `-- 0af521c (mcp-shared-1) Set shared timeout to 45000
+                                `-- d449dbb Merge mcp-shared-1 and keep 45000 timeout
+                                    |-- f65ce87 Default legacy wait to 1000ms
+                                    `-- 71b322e (mcp-shared-2) Delete legacy wait helper
+                                        `-- 4393a3f Merge mcp-shared-2 and accept helper deletion
+                                            |-- 3720c69 Capitalize first letter of product names
+                                            `-- afd936d (mcp-shared-3) Trim product names before building labels
+                                                `-- 9df1c50 Merge trim and capitalization in product names
+                                                    |-- a24cadc Add GreenKart Playwright codegen script
+                                                    `-- 98fe2f8 (mcp-shared-4) Add Playwright report script
+                                                        `-- 1dc1bc4 Merge report and GreenKart codegen scripts
+                                                            |-- 30de32e (git-mcp-practice) Add cart quantity formatter
+                                                            `-- 2365210 Add GreenKart products test data
+                                                                `-- bbd0239 Add cart quantity formatter
+                                                                    `-- 2f646c2 (mcp-feature-extras) Add Chromium-only Playwright test script
